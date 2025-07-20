@@ -36,7 +36,7 @@ def mround(x, base=50):
 
 def analyze_symbol(symbol):
     try:
-        option_chain = breeze.get_option_chain_quotes(stock_code=symbol, exchange_code="NFO", product_type="options")
+        option_chain = breeze.get_option_chain_quotes(stock_code=symbol, exchange_code="NFO", product_type="options",right=right,expiry_date="2025-07-24T06:00:00.000Z")
 
         df = pd.DataFrame(option_chain["Success"])
         df['strike_price'] = pd.to_numeric(df['strike_price'], errors='coerce')
@@ -78,7 +78,7 @@ def analyze_symbol(symbol):
 if __name__ == "__main__":
     while True:
         print(f"⏰ Running analysis at {datetime.now().strftime('%H:%M:%S')}")
-        for sym in ['NIFTY', 'BANKNIFTY']:
+        for sym in ['NIFTY']:
             analyze_symbol(sym)
         print("Sleeping for 3 minutes...\n")
         time.sleep(180)

@@ -1,3 +1,5 @@
-
 breeze-connect==1.0.19
 requests==2.31.0
+pandas==2.2.2
+python-telegram-bot==20.7
+python-dotenv==1.0.1
